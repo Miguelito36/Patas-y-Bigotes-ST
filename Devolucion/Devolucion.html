@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devolución - Patas y Bigotes</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Devolución</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre del Cliente</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="producto">Producto a Devolver</label>
+                <input type="text" id="producto" required>
+            </div>
+            <div class="form-group">
+                <label for="motivo">Motivo de la Devolución</label>
+                <select id="motivo" required>
+                    <option value="">Seleccione...</option>
+                    <option value="defectuoso">Producto defectuoso</option>
+                    <option value="equivocado">Producto equivocado</option>
+                    <option value="insatisfecho">Insatisfacción con el producto</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha de Compra</label>
+                <input type="date" id="fecha" required>
+            </div>
+            <div class="form-group">
+                <label for="detalles">Detalles Adicionales</label>
+                <textarea id="detalles" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn">Solicitar Devolución</button>
+        </form>
+        <p style="text-align: center; margin-top: 15px;">
+            <a href="index.html">Volver al inicio</a>
+        </p>
+    </div>
+</body>
+</html>

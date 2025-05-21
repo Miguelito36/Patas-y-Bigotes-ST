@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="caminar.png" />
+    <title>Seguimiento - Patas y Bigotes</title>
+  </head>
+  <body>
+    <header>
+      <h1>PATAS Y BIGOTES</h1>
+    </header>
+
+    <nav class="navbar">
+      <li>
+        <i class="fa-solid fa-user"
+          ><a href="../PERFIL/PERFIL.html">Perfil</a></i
+        >
+      </li>
+      <li>
+        <i class="fa-solid fa-paw"
+          ><a href="../seleccion_mascota.html">Mascotas</a></i
+        >
+      </li>
+      <li>
+        <i class="fa-solid fa-person-walking"
+          ><a href="../Seguimiento/seguimiento.html">Seguimiento</a></i
+        >
+      </li>
+      <li>
+        <i class="fa-solid fa-gear"><a href="../PQRDS.html">PQRS</a></i>
+      </li>
+    </nav>
+
+    <section class="form-register" id="form">
+      <h4>Formulario Seguimiento</h4>
+      <input
+        class="controls"
+        type="number"
+        name="codigo"
+        id="codigo"
+        placeholder="Codigo de Seguimiento"
+      />
+      <input
+        class="controls"
+        type="text"
+        name="mascota"
+        id="mascota"
+        placeholder="Nombre de la Mascota"
+      />
+      <input
+        class="controls"
+        type="date"
+        name="correo"
+        id="correo"
+        placeholder="Ingrese su Correo"
+      />
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <select id="estado" required>
+          <option value="">Seleccione...</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="proceso">En proceso</option>
+          <option value="completado">Completado</option>
+        </select>
+      </div>
+      <textarea
+        name="comentarios"
+        id="comentarios"
+        placeholder="Comentarios"
+      ></textarea>
+      <button type="submit" class="btn" id="SUB">
+        Registrar Seguimiento
+      </button>
+    </section>
+
+    <footer>
+      <div class="footerContainer">
+        <div class="socialIcons">
+          <a href="../LOGIN/login.html"><i class="fa-solid fa-backward"></i></a>
+          <a href="../Carrito/carrito.html"
+            ><i class="fa-solid fa-cart-shopping"></i
+          ></a>
+          <a href="../MENU/MENU.html"><i class="fa-solid fa-house"></i></a>
+          <a href="../Cartera/cartera.html"
+            ><i class="fa-solid fa-wallet"></i
+          ></a>
+          <a href=""><i class="fa-solid fa-forward"></i></a>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p>
+          CECEP &copy;2025; Designed by
+          <span class="designer">Jose Astaiza</span>
+        </p>
+      </div>
+    </footer>
+    <script src="./scripts.js"></script>
+  </body>
+</html>

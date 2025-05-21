@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patas y Bigotes - Adopción de Mascotas</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Estilos para botones */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn-secondary {
+            background-color: #f44336;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Estilos para formularios */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4CAF50;
+        }
+        
+        /* Estilos para la navegación */
+        nav {
+            background-color: #4CAF50;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Estilos para las tarjetas de mascotas */
+        .pets-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pet-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .pet-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pet-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .pet-card-content {
+            padding: 20px;
+        }
+        
+        .pet-card h3 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+        
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Estilos para el test psicológico */
+        .test-question {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .test-question:last-child {
+            border-bottom: none;
+        }
+        
+        .test-question h4 {
+            margin-bottom: 10px;
+        }
+        
+        .test-options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        /* Estilos para el footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Página de inicio/registro -->
+    <div id="welcome-page" class="container">
+        <div style="text-align: center; margin-top: 100px;">
+            <h1 style="font-size: 3em; color: #4CAF50;">Patas y Bigotes</h1>
+            <p style="font-size: 1.2em; margin: 30px 0;">Encuentra a tu compañero peludo perfecto</p>
+            
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <button onclick="showLogin()" class="btn">Iniciar Sesión</button>
+                <button onclick="showRegister()" class="btn btn-secondary">Registrarse</button>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Mascotas" 
+                 style="width: 100%; max-width: 600px; margin-top: 50px; border-radius: 10px;">
+        </div>
+    </div>
+
+    <!-- Página de inicio de sesión (oculta inicialmente) -->
+    <div id="login-page" class="form-container" style="display: none;">
+        <span class="close" onclick="hideLogin()">&times;</span>
+        <h2 class="form-title">Iniciar Sesión</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-email">Correo electrónico</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Iniciar Sesión</button>
+            <p style="text-align: center; margin-top: 15px;">
+                <a href="#" onclick="showForgotPassword()" style="color: #4CAF50;">¿Olvidaste tu contraseña?</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Página de registro (oculta inicialmente) -->
+    <div id="register-page" class="form-container" style="display: none;">
+        <span class="close" onclick="hideRegister()">&times;</span>
+        <h2 class="form-title">Registrarse</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="register-name">Nombre completo</label>
+                <input type="text" id="register-name" required>
+            </div>
+            <div class="form-group">
+                <label for="register-email">Correo electrónico</label>
+                <input type="email" id="register-email" required>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Contraseña</label>
+                <input type="password" id="register-password" required>
+            </div>
+            <div class="form-group">
+                <label for="register-confirm">Confirmar contraseña</label>
+                <input type="password" id="register-confirm" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Registrarse</button>
+        </form>
+    </div>
+
+    <!-- Página principal después de iniciar sesión (oculta inicialmente) -->
+    <div id="main-app" style="display: none;">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showHome()">Inicio</a></li>
+                <li><a href="#" onclick="showPets()">Mascotas</a></li>
+                <li><a href="#" onclick="showAppointments()">Citas</a></li>
+                <li><a href="#" onclick="logout()">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- Sección de inicio -->
+        <div id="home-section" class="container">
+            <h2 style="text-align: center; margin: 30px 0;">Bienvenido a Patas y Bigotes</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px;">
+                Encuentra a tu compañero peludo perfecto y dale un hogar lleno de amor.
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 50px;">
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1601758003122-53c40e686a19?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Perros" 
+                         style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; cursor: pointer;"
+                         onclick="showDogs()">
+                    <h3 style="margin-top: 15px;">Perros</h3>
+                </div>
+                <div style="text-align: center;">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Gatos" 
+                         style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; cursor: pointer;"
+                         onclick="showCats()">
+                    <h3 style="margin-top: 15px;">Gatos</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de mascotas (perros) -->
+        <div id="dogs-section" class="container" style="display: none;">
+            <h2 style="text-align: center; margin: 30px 0;">Perros Disponibles para Adopción</h2>
+            
+            <div class="pets-container">
+                <div class="pet-card" onclick="showDogDetails('Max', 'Labrador', '2 años', 'Macho', 'Amigable y juguetón')">
+                    <img src="https://images.unsplash.com/photo-1554692936-82776f9406c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Max">
+                    <div class="pet-card-content">
+                        <h3>Max</h3>
+                        <p><strong>Raza:</strong> Labrador</p>
+                        <p><strong>Edad:</strong> 2 años</p>
+                    </div>
+                </div>
+                
+                <div class="pet-card" onclick="showDogDetails('Luna', 'Golden Retriever', '3 años', 'Hembra', 'Tranquila y cariñosa')">
+                    <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Luna">
+                    <div class="pet-card-content">
+                        <h3>Luna</h3>
+                        <p><strong>Raza:</strong> Golden Retriever</p>
+                        <p><strong>Edad:</strong> 3 años</p>
+                    </div>
+                </div>
+                
+                <div class="pet-card" onclick="showDogDetails('Rocky', 'Bulldog', '4 años', 'Macho', 'Protector y leal')">
+                    <img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Rocky">
+                    <div class="pet-card-content">
+                        <h3>Rocky</h3>
+                        <p><strong>Raza:</strong> Bulldog</p>
+                        <p><strong>Edad:</strong> 4 años</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de mascotas (gatos) -->
+        <div id="cats-section" class="container" style="display: none;">
+            <h2 style="text-align: center; margin: 30px 0;">Gatos Disponibles para Adopción</h2>
+            
+            <div class="pets-container">
+                <div class="pet-card" onclick="showCatDetails('Milo', 'Siamés', '1 año', 'Macho', 'Curioso y activo')">
+                    <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Milo">
+                    <div class="pet-card-content">
+                        <h3>Milo</h3>
+                        <p><strong>Raza:</strong> Siamés</p>
+                        <p><strong>Edad:</strong> 1 año</p>
+                    </div>
+                </div>
+                
+                <div class="pet-card" onclick="showCatDetails('Luna', 'Persa', '2 años', 'Hembra', 'Tranquila y elegante')">
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Luna">
+                    <div class="pet-card-content">
+                        <h3>Luna</h3>
+                        <p><strong>Raza:</strong> Persa</p>
+                        <p><strong>Edad:</strong> 2 años</p>
+                    </div>
+                </div>
+                
+                <div class="pet-card" onclick="showCatDetails('Simba', 'Mestizo', '6 meses', 'Macho', 'Juguetón y cariñoso')">
+                    <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Simba">
+                    <div class="pet-card-content">
+                        <h3>Simba</h3>
+                        <p><strong>Raza:</strong> Mestizo</p>
+                        <p><strong>Edad:</strong> 6 meses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de citas -->
+        <div id="appointments-section" class="container" style="display: none;">
+            <h2 style="text-align: center; margin: 30px 0;">Solicitar Cita</h2>
+            
+            <div class="form-container" style="max-width: 800px;">
+                <form id="appointment-form">
+                    <div class="form-group">
+                        <label>Tipo de Cita</label>
+                        <div style="display: flex; gap: 20px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center;">
+                                <input type="radio" name="appointment-type" value="adoption" checked> 
+                                <span style="margin-left: 5px;">Cita de Adopción</span>
+                            </label>
+                            <label style="display: flex; align-items: center;">
+                                <input type="radio" name="appointment-type" value="control"> 
+                                <span style="margin-left: 5px;">Cita de Control</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-date">Fecha</label>
+                        <input type="date" id="appointment-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-time">Hora</label>
+                        <input type="time" id="appointment-time" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-notes">Notas adicionales</label>
+                        <textarea id="appointment-notes" rows="4" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Solicitar Cita</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para detalles de perro -->
+    <div id="dog-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('dog-modal')">&times;</span>
+            <h2 id="dog-name"></h2>
+            <div style="display: flex; gap: 30px; margin-top: 20px;">
+                <img id="dog-image" src="" alt="Perro" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px;">
+                <div>
+                    <p><strong>Raza:</strong> <span id="dog-breed"></span></p>
+                    <p><strong>Edad:</strong> <span id="dog-age"></span></p>
+                    <p><strong>Sexo:</strong> <span id="dog-gender"></span></p>
+                    <p><strong>Descripción:</strong> <span id="dog-description"></span></p>
+                </div>
+            </div>
+            <button onclick="startAdoptionTest('dog')" class="btn" style="margin-top: 30px;">Solicitar Adopción</button>
+        </div>
+    </div>
+
+    <!-- Modal para detalles de gato -->
+    <div id="cat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cat-modal')">&times;</span>
+            <h2 id="cat-name"></h2>
+            <div style="display: flex; gap: 30px; margin-top: 20px;">
+                <img id="cat-image" src="" alt="Gato" style="width: 200px; height: 200px; object-fit: cover; border-radius: 10px;">
+                <div>
+                    <p><strong>Raza:</strong> <span id="cat-breed"></span></p>
+                    <p><strong>Edad:</strong> <span id="cat-age"></span></p>
+                    <p><strong>Sexo:</strong> <span id="cat-gender"></span></p>
+                    <p><strong>Descripción:</strong> <span id="cat-description"></span></p>
+                </div>
+            </div>
+            <button onclick="startAdoptionTest('cat')" class="btn" style="margin-top: 30px;">Solicitar Adopción</button>
+        </div>
+    </div>
+
+    <!-- Modal para test de adopción -->
+    <div id="test-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('test-modal')">&times;</span>
+            <h2>Test de Aptitud para Adopción</h2>
+            <p style="margin-bottom: 20px;">Por favor responde las siguientes preguntas para evaluar tu aptitud para adoptar una mascota.</p>
+            
+            <form id="adoption-test-form">
+                <div class="test-question">
+                    <h4>1. ¿Cuánto tiempo puedes dedicar diariamente al cuidado de tu mascota?</h4>
+                    <div class="test-options">
+                        <label><input type="radio" name="q1" value="1" required> Menos de 1 hora</label>
+                        <label><input type="radio" name="q1" value="2"> 1-2 horas</label>
+                        <label><input type="radio" name="q1" value="3"> 2-4 horas</label>
+                        <label><input type="radio" name="q1" value="4"> Más de 4 horas</label>
+                    </div>
+                </div>
+                
+                <div class="test-question">
+                    <h4>2. ¿Tienes experiencia previa con mascotas?</h4>
+                    <div class="test-options">
+                        <label><input type="radio" name="q2" value="1" required> Ninguna</label>
+                        <label><input type="radio" name="q2" value="2"> Alguna experiencia con mascotas de amigos/familia</label>
+                        <label><input type="radio" name="q2" value="3"> He tenido mascotas antes</label>
+                        <label><input type="radio" name="q2" value="4"> Tengo amplia experiencia con mascotas</label>
+                    </div>
+                </div>
+                
+                <div class="test-question">
+                    <h4>3. ¿Cómo es tu situación de vivienda?</h4>
+                    <div class="test-options">
+                        <label><input type="radio" name="q3" value="1" required> Apartamento pequeño sin espacio exterior</label>
+                        <label><input type="radio" name="q3" value="2"> Apartamento con balcón/terraza</label>
+                        <label><input type="radio" name="q3" value="3"> Casa con patio pequeño</label>
+                        <label><input type="radio" name="q3" value="4"> Casa con amplio espacio exterior</label>
+                    </div>
+                </div>
+                
+                <div class="test-question">
+                    <h4>4. ¿Cuál es tu presupuesto mensual para el cuidado de la mascota?</h4>
+                    <div class="test-options">
+                        <label><input type="radio" name="q4" value="1" required> Menos de $50</label>
+                        <label><input type="radio" name="q4" value="2"> $50-$100</label>
+                        <label><input type="radio" name="q4" value="3"> $100-$200</label>
+                        <label><input type="radio" name="q4" value="4"> Más de $200</label>
+                    </div>
+                </div>
+                
+                <div class="test-question">
+                    <h4>5. ¿Cómo reaccionarías si tu mascota daña algún objeto valioso?</h4>
+                    <div class="test-options">
+                        <label><input type="radio" name="q5" value="1" required> Me enojaría mucho y reconsideraría tenerla</label>
+                        <label><input type="radio" name="q5" value="2"> Me molestaría pero lo superaría</label>
+                        <label><input type="radio" name="q5" value="3"> Entendería que es parte de tener mascota</label>
+                        <label><input type="radio" name="q5" value="4"> Aseguraría que no tenga acceso a objetos valiosos</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; margin-top: 30px;">Enviar Test</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para olvidé contraseña -->
+    <div id="forgot-password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('forgot-password-modal')">&times;</span>
+            <h2>Recuperar Contraseña</h2>
+            <p style="margin-bottom: 20px;">Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+            
+            <form id="forgot-password-form">
+                <div class="form-group">
+                    <label for="forgot-email">Correo electrónico</label>
+                    <input type="email" id="forgot-email" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Enviar Enlace</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para resultados del test -->
+    <div id="test-result-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('test-result-modal')">&times;</span>
+            <h2 id="test-result-title"></h2>
+            <p id="test-result-message" style="margin-bottom: 20px;"></p>
+            <div id="test-success" style="display: none;">
+                <p style="font-weight: bold; color: #4CAF50; margin-bottom: 20px;">¡Felicidades! Eres apto para adoptar.</p>
+                <button onclick="showAppointmentForm()" class="btn">Programar Cita de Adopción</button>
+            </div>
+            <div id="test-fail" style="display: none;">
+                <p style="font-weight: bold; color: #f44336; margin-bottom: 20px;">Lamentablemente no cumples con los requisitos para adoptar en este momento.</p>
+                <p>Te recomendamos informarte más sobre el cuidado de mascotas y considerar adoptar en el futuro.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Patas y Bigotes - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        // Funciones para mostrar/ocultar páginas
+        function showLogin() {
+            document.getElementById('welcome-page').style.display = 'none';
+            document.getElementById('login-page').style.display = 'block';
+        }
+        
+        function hideLogin() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('welcome-page').style.display = 'block';
+        }
+        
+        function showRegister() {
+            document.getElementById('welcome-page').style.display = 'none';
+            document.getElementById('register-page').style.display = 'block';
+        }
+        
+        function hideRegister() {
+            document.getElementById('register-page').style.display = 'none';
+            document.getElementById('welcome-page').style.display = 'block';
+        }
+        
+        function showForgotPassword() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('forgot-password-modal').style.display = 'block';
+        }
+        
+        // Funciones para el login/registro
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica de autenticación real
+            alert('Inicio de sesión exitoso (simulado)');
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('main-app').style.display = 'block';
+            showHome();
+        });
+        
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica de registro real
+            alert('Registro exitoso (simulado)');
+            document.getElementById('register-page').style.display = 'none';
+            document.getElementById('main-app').style.display = 'block';
+            showHome();
+        });
+        
+        document.getElementById('forgot-password-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Se ha enviado un enlace para restablecer tu contraseña a tu correo electrónico (simulado)');
+            closeModal('forgot-password-modal');
+            showLogin();
+        });
+        
+        // Funciones para la navegación principal
+        function logout() {
+            document.getElementById('main-app').style.display = 'none';
+            document.getElementById('welcome-page').style.display = 'block';
+        }
+        
+        function showHome() {
+            hideAllSections();
+            document.getElementById('home-section').style.display = 'block';
+        }
+        
+        function showPets() {
+            hideAllSections();
+            document.getElementById('dogs-section').style.display = 'block';
+        }
+        
+        function showDogs() {
+            hideAllSections();
+            document.getElementById('dogs-section').style.display = 'block';
+        }
+        
+        function showCats() {
+            hideAllSections();
+            document.getElementById('cats-section').style.display = 'block';
+        }
+        
+        function showAppointments() {
+            hideAllSections();
+            document.getElementById('appointments-section').style.display = 'block';
+        }
+        
+        function hideAllSections() {
+            const sections = ['home-section', 'dogs-section', 'cats-section', 'appointments-section'];
+            sections.forEach(section => {
+                document.getElementById(section).style.display = 'none';
+            });
+        }
+        
+        // Funciones para los modales
+        function showDogDetails(name, breed, age, gender, description) {
+            document.getElementById('dog-name').textContent = name;
+            document.getElementById('dog-breed').textContent = breed;
+            document.getElementById('dog-age').textContent = age;
+            document.getElementById('dog-gender').textContent = gender;
+            document.getElementById('dog-description').textContent = description;
+            document.getElementById('dog-image').src = `https://source.unsplash.com/random/300x300/?${breed.toLowerCase().replace(' ', '-')}-dog`;
+            document.getElementById('dog-modal').style.display = 'block';
+        }
+        
+        function showCatDetails(name, breed, age, gender, description) {
+            document.getElementById('cat-name').textContent = name;
+            document.getElementById('cat-breed').textContent = breed;
+            document.getElementById('cat-age').textContent = age;
+            document.getElementById('cat-gender').textContent = gender;
+            document.getElementById('cat-description').textContent = description;
+            document.getElementById('cat-image').src = `https://source.unsplash.com/random/300x300/?${breed.toLowerCase().replace(' ', '-')}-cat`;
+            document.getElementById('cat-modal').style.display = 'block';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Funciones para el test de adopción
+        function startAdoptionTest(petType) {
+            closeModal(petType + '-modal');
+            document.getElementById('test-modal').style.display = 'block';
+        }
+        
+        document.getElementById('adoption-test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Calcular puntaje (simulado)
+            let score = 0;
+            for (let i = 1; i <= 5; i++) {
+                score += parseInt(document.querySelector(`input[name="q${i}"]:checked`).value);
+            }
+            
+            // Mostrar resultados
+            document.getElementById('test-result-title').textContent = 'Resultados del Test';
+            
+            if (score >= 15) {
+                document.getElementById('test-result-message').textContent = 'Obtuviste ' + score + ' puntos de 20 posibles.';
+                document.getElementById('test-success').style.display = 'block';
+                document.getElementById('test-fail').style.display = 'none';
+            } else {
+                document.getElementById('test-result-message').textContent = 'Obtuviste ' + score + ' puntos de 20 posibles. Se recomienda un mínimo de 15 puntos para aprobar.';
+                document.getElementById('test-success').style.display = 'none';
+                document.getElementById('test-fail').style.display = 'block';
+            }
+            
+            closeModal('test-modal');
+            document.getElementById('test-result-modal').style.display = 'block';
+        });
+        
+        function showAppointmentForm() {
+            closeModal('test-result-modal');
+            showAppointments();
+        }
+        
+        // Manejo del formulario de citas
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const type = document.querySelector('input[name="appointment-type"]:checked').value;
+            const date = document.getElementById('appointment-date').value;
+            const time = document.getElementById('appointment-time').value;
+            
+            alert(`Cita ${type === 'adoption' ? 'de adopción' : 'de control'} programada para el ${date} a las ${time}.`);
+        });
+    </script>
+</body>
+</html>

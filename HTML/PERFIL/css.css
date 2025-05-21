@@ -1,0 +1,260 @@
+.form {
+  position: absolute;
+  left: 50px;
+  top: 65px;
+  background: #fff;
+  padding: 0px 5px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+input:focus + .perfilForm {
+  transform: translateY(-25px);
+  color: #0051ff;
+}
+input:focus {
+  border-color: #0051ff;
+}
+.contenido {
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 100px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fdddf9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+header img {
+  width: 80px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 10px 0 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.perfil-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.foto-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foto-perfil img {
+  width: 120px;
+  border-radius: 50%;
+}
+
+.btn-cambiar-foto {
+  margin-top: 10px;
+  background-color: #5c2b3f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid gray;
+  background: transparent;
+  font-size: 14px;
+}
+
+.sexo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.sexo label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-opciones {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #5c2b3f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 22px;
+}
+
+/*Footer*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer {
+  background-color: #7d1c4a;
+}
+.footerContainer {
+  width: 100%;
+  padding: 20px 30px 20px;
+}
+.socialIcons {
+  display: flex;
+  justify-content: center;
+}
+.socialIcons a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%;
+}
+.socialIcons a i {
+  font-size: 2em;
+  color: black;
+  opacity: 0, 9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover {
+  background-color: #111;
+  transition: 0.5s;
+}
+.socialIcons a:hover i {
+  color: white;
+  transition: 0.5s;
+}
+.footerBottom {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+.footerBottom p {
+  color: white;
+}
+.designer {
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0px 5px;
+}
+@media (max-width: 700px) {
+  .socialIcons a {
+    padding: 8px;
+    margin: 4px;
+  }
+}
+
+/*Nav Bar*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.navbar {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: auto;
+}
+
+li {
+  font-size: 20px;
+  margin: 0 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+li:hover {
+  color: #072ac8;
+}
+
+i {
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 712px) {
+  .navbar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  li {
+    margin: 1rem 0;
+  }
+}

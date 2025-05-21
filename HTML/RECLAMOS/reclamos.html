@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PETICIONES</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdddf9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+      width: 80px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #fff;
+      padding: 10px;
+      font-weight: bold;
+    }
+    main {
+      padding: 20px;
+    }
+    .form-container {
+      background-color: #5c2b3f;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #5c2b3f;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+     <h1>PATAS Y BIGOTES</h1>
+  </header>
+
+  <nav>
+    <a href="MENU.html">Volver al menú</a>
+  </nav>
+
+  <main>
+    <div class="form-container">
+      <h2>Formulario de reclamos</h2>
+      <form>
+        <label for="tipoSolicitud">Tipo de solicitud:</label>
+        <input type="text" id="tipoSolicitud" value="reclamo" readonly>
+
+        <label for="tipoDocumento">Tipo de documento:</label>
+        <select id="tipoDocumento">
+          <option value="Cédula">Cédula</option>
+          <option value="Pasaporte">Pasaporte</option>
+          <option value="Otro">Otro</option>
+        </select>
+
+        <label for="numeroDocumento">Número de documento:</label>
+        <input type="text" id="numeroDocumento">
+
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres">
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos">
+
+        <label for="departamento">Departamento:</label>
+        <input type="text" id="departamento">
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad">
+
+        <label for="informacionAdicional">Información adicional:</label>
+        <textarea id="informacionAdicional" placeholder="Describe tu petición con más detalle..."></textarea>
+
+        <div class="button-container">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

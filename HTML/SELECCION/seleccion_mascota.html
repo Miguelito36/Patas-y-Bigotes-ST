@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Styles.css" />
+    <link rel="shortcut icon" href="pata.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Adopción de Mascotas</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center">Centro de Adopción de Mascotas</h1>
+
+      <div class="section-toggle">
+        <button
+          id="cats-btn"
+          class="toggle-btn active"
+          onclick="toggleSection('cats')"
+        >
+          Gatos
+        </button>
+        <button
+          id="dogs-btn"
+          class="toggle-btn"
+          onclick="toggleSection('dogs')"
+        >
+          Perros
+        </button>
+      </div>
+
+      <!-- Sección de mascotas (gatos) -->
+      <div id="cats-section" class="container">
+        <h2 style="text-align: center; margin: 30px 0">
+          Gatos Disponibles para Adopción
+        </h2>
+
+        <div class="pets-container">
+          <div
+            class="card"
+            onclick="showPetDetails('Milo', 'Siamés', '1 año', 'Macho', '')"
+          >
+            <div class="card">
+              <div
+                class="card_landing"
+                style="--i: url(../SELECCION/gato1.jpg)"
+              >
+                <h6>Milo</h6>
+              </div>
+              <div class="card_info">
+                <div class="head">
+                  <p class="title">Milo</p>
+                  <div class="description">
+                    <div class="item">
+                      <i class="fa-solid fa-cat"></i>
+                      <p>Siames</p>
+                    </div>
+                    <div class="item">
+                      <i class="fa-solid fa-cake-candles"></i>
+                      <p>1 Año</p>
+                    </div>
+                    <div class="item">
+                      <i class="fa-solid fa-venus-mars"></i>
+                      <p>Macho</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="title">Descripcion:</p>
+                  <p>
+                    Milo es un elegante gato siamés de un año con pelaje claro y
+                    marcas distintivas de su raza. Con esos característicos ojos
+                    penetrantes de los siameses. Este joven felino combina la
+                    gracia natural de su raza con la energía curiosa típica de
+                    su edad, siendo un explorador incansable y muy comunicativo
+                    que está siempre listo para su próxima aventura doméstica.
+                  </p>
+                </div>
+
+                <div class="action">
+                  <button class="adoptar" onclick="adoptPet()">Adoptar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div
+                class="card_landing"
+                style="--i: url(../SELECCION/Persa.jpg)"
+              >
+                <h6>Luna</h6>
+              </div>
+              <div class="card_info">
+                <div class="head">
+                  <p class="title">Luna</p>
+                  <div class="description">
+                    <div class="item">
+                      <i class="fa-solid fa-cat"></i>
+                      <p>Persa</p>
+                    </div>
+                    <div class="item">
+                      <i class="fa-solid fa-cake-candles"></i>
+                      <p>2 Año</p>
+                    </div>
+                    <div class="item">
+                      <i class="fa-solid fa-venus-mars"></i>
+                      <p>Macho</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="title">Descripcion:</p>
+                  <p>
+                    Luna es una elegante gata persa de 2 años con un exuberante
+                    pelaje blanco como la nieve y hermosos ojos verdes. Con su
+                    expresión calmada y dignidad natural, Luna personifica la
+                    gracia aristocrática de los persas, siendo una compañía
+                    apacible y distinguida que observa el mundo con elegancia
+                    felina.
+                  </p>
+                </div>
+
+                <div class="action">
+                  <button class="adoptar" onclick="adoptPet()">Adoptar</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <div
+                  class="card_landing"
+                  style="--i: url(../SELECCION/Mestizo.jpg)"
+                >
+                  <h6>Simba</h6>
+                </div>
+                <div class="card_info">
+                  <div class="head">
+                    <p class="title">Simba</p>
+                    <div class="description">
+                      <div class="item">
+                        <i class="fa-solid fa-cat"></i>
+                        <p>Mestizo</p>
+                      </div>
+                      <div class="item">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <p>6 meses</p>
+                      </div>
+                      <div class="item">
+                        <i class="fa-solid fa-venus-mars"></i>
+                        <p>Macho</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <p class="title">Descripcion:</p>
+                    <p>
+                      Simba es un encantador gato mestizo de 6 meses con pelaje
+                      atigrado gris y blanco, y llamativos ojos dorados. Su
+                      expresión alerta y curiosa refleja su naturaleza juguetona
+                      y cariñosa típica de un gatito joven. Con sus distintivas
+                      rayas y ese aire confiado, Simba es pura energía felina
+                      lista para explorar y brindar cariño.
+                    </p>
+                  </div>
+
+                  <div class="action">
+                    <button class="adoptar" onclick="adoptPet()">
+                      Adoptar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de mascotas (perros) -->
+      <div id="dogs-section" class="container" style="display: none">
+        <h2 style="text-align: center; margin: 30px 0">
+          Perros Disponibles para Adopción
+        </h2>
+
+        <div class="card">
+          <div class="card_landing" style="--i: url(../SELECCION/gato1.jpg)">
+            <h6>Bella</h6>
+          </div>
+          <div class="card_info">
+            <div class="head">
+              <p class="title">Bella</p>
+              <div class="description">
+                <div class="item">
+                  <i class="fa-solid fa-cat"></i>
+                  <p>Golden Retriever</p>
+                </div>
+                <div class="item">
+                  <i class="fa-solid fa-cake-candles"></i>
+                  <p>2 Años</p>
+                </div>
+                <div class="item">
+                  <i class="fa-solid fa-venus-mars"></i>
+                  <p>Hembra</p>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <p class="title">Descripcion:</p>
+              <p>
+                Milo es un elegante gato siamés de un año con pelaje claro y
+                marcas distintivas de su raza. Con esos característicos ojos
+                penetrantes de los siameses. Este joven felino combina la gracia
+                natural de su raza con la energía curiosa típica de su edad,
+                siendo un explorador incansable y muy comunicativo que está
+                siempre listo para su próxima aventura doméstica.
+              </p>
+            </div>
+
+            <div class="action">
+              <button class="adoptar" onclick="adoptPet()">Adoptar</button>
+            </div>
+          </div>
+
+          <div class="card_landing" style="--i: url(../SELECCION/gato1.jpg)">
+            <h6>Rocky</h6>
+          </div>
+          <div class="card_info">
+            <div class="head">
+              <p class="title">Rocky</p>
+              <div class="description">
+                <div class="item">
+                  <i class="fa-solid fa-cat"></i>
+                  <p>Pastor Aleman</p>
+                </div>
+                <div class="item">
+                  <i class="fa-solid fa-cake-candles"></i>
+                  <p>4 años</p>
+                </div>
+                <div class="item">
+                  <i class="fa-solid fa-venus-mars"></i>
+                  <p>Macho</p>
+                </div>
+              </div>
+            </div>
+            <div class="content">
+              <p class="title">Descripcion:</p>
+              <p>
+                Milo es un elegante gato siamés de un año con pelaje claro y
+                marcas distintivas de su raza. Con esos característicos ojos
+                penetrantes de los siameses. Este joven felino combina la gracia
+                natural de su raza con la energía curiosa típica de su edad,
+                siendo un explorador incansable y muy comunicativo que está
+                siempre listo para su próxima aventura doméstica.
+              </p>
+            </div>
+
+            <div class="action">
+              <button class="adoptar" onclick="adoptPet()">Adoptar</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Scripts.js"></script>
+  </body>
+  <footer>
+    <div class="footerContainer">
+      <div class="socialIcons">
+        <a href="../LOGIN/login.html"><i class="fa-solid fa-backward"></i></a>
+        <a href="../Carrito/carrito.html"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+        <a href="../MENU/MENU.html"><i class="fa-solid fa-house"></i></a>
+        <a href="../Cartera/cartera.html"><i class="fa-solid fa-wallet"></i></a>
+        <a href=""><i class="fa-solid fa-forward"></i></a>
+      </div>
+    </div>
+    <div class="footerBottom">
+      <p>
+        CECEP &copy;2025; Designed by
+        <span class="designer">Jose Astaiza</span>
+      </p>
+    </div>
+  </footer>
+</html>

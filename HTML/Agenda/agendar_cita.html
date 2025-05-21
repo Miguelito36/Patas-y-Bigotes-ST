@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendar Cita</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdddf9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 10px;
+    }
+    header img { width: 80px; }
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .contenido {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+    }
+    input, select, button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #5c2b3f;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.imgur.com/qz0gfqe.png" alt="Logo" />
+    <h1>PATAS Y BIGOTES</h1>
+  </header>
+
+  <main>
+    <div class="contenido">
+      <h2>Agendar Cita</h2>
+      <input type="text" placeholder="Nombre de tu mascota" />
+      <input type="date" />
+      <select>
+        <option>Consulta general</option>
+        <option>Vacunación</option>
+        <option>Estética</option>
+      </select>
+      <button>Confirmar cita</button>
+    </div>
+  </main>
+
+</body>
+</html>
