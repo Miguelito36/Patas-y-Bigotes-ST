@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Styles.css">
+  <title>Admin - Patas y Bigotes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="https://i.imgur.com/qz0gfqe.png" alt="Logo">
+      <h3>Patas y Bigotes</h3>
+    </div>
+    
+    <div class="sidebar-menu">
+      <h4>Principal</h4>
+      <a href="#" class="menu-item active" onclick="showSection('dashboard')">
+        <i class="fas fa-tachometer-alt"></i>
+        Dashboard
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('products')">
+        <i class="fas fa-box"></i>
+        Productos
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('customers')">
+        <i class="fas fa-users"></i>
+        Clientes
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('orders')">
+        <i class="fas fa-shopping-cart"></i>
+        Pedidos
+      </a>
+      
+      <h4>Servicios</h4>
+      <a href="#" class="menu-item" onclick="showSection('appointments')">
+        <i class="far fa-calendar-alt"></i>
+        Citas
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('pqrs')">
+        <i class="fas fa-comment-dots"></i>
+        PQRS
+      </a>
+      
+      <h4>Reportes</h4>
+      <a href="#" class="menu-item" onclick="showSection('reports')">
+        <i class="fas fa-chart-bar"></i>
+        Estadísticas
+      </a>
+      <a href="#" class="menu-item" onclick="showSection('settings')">
+        <i class="fas fa-cog"></i>
+        Configuración
+      </a>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <div class="header-left">
+        <div class="toggle-menu" id="toggleMenu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Buscar...">
+        </div>
+      </div>
+      
+      <div class="user-info">
+        <div class="notifications">
+          <i class="far fa-bell"></i>
+        </div>
+        <img src="https://i.imgur.com/8RKXAIV.png" alt="Admin">
+        <div class="dropdown" id="userDropdown">
+          <span>Admin</span>
+          <i class="fas fa-chevron-down"></i>
+          
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#"><i class="fas fa-user"></i> Perfil</a>
+            <a href="#" onclick="showSection('settings')"><i class="fas fa-cog"></i> Configuración</a>
+            <a href="../LOGADMIN/loginadmin.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Dashboard Content -->
+    <div class="content">
+      <!-- Dashboard Section -->
+      <section id="dashboard-section">
+        <h2>Dashboard</h2>
+        <p class="subtitle">Bienvenido al panel de administración de Patas y Bigotes</p>
+        
+        <div class="dashboard-cards">
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+              <h4>1,245</h4>
+              <p>Clientes Registrados</p>
+            </div>
+          </div>
+          
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="stat-info">
+              <h4>246</h4>
+              <p>Nuevos Pedidos</p>
+            </div>
+          </div>
+          
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="stat-info">
+              <h4>84</h4>
+              <p>Citas Programadas</p>
+            </div>
+          </div>
+          
+          <div class="card stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="stat-info">
+              <h4>$15,245</h4>
+              <p>Ingresos del Mes</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="card">
+            <div class="card-header">
+              <h3>Pedidos Recientes</h3>
+              <a href="#" class="view-all" onclick="showSection('orders')">Ver todos</a>
+            </div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Monto</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#ORD-238</td>
+                    <td>Ana García</td>
+                    <td>20/05/2025</td>
+                    <td>$120.00</td>
+                    <td><span class="status pending">Pendiente</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Ver</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#ORD-237</td>
+                    <td>Carlos Pérez</td>
+                    <td>19/05/2025</td>
+                    <td>$85.50</td>
+                    <td><span class="status completed">Completado</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Ver</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#ORD-236</td>
+                    <td>María López</td>
+                    <td>19/05/2025</td>
+                    <td>$200.00</td>
+                    <td><span class="status completed">Completado</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Ver</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#ORD-235</td>
+                    <td>Pedro Ramírez</td>
+                    <td>18/05/2025</td>
+                    <td>$45.00</td>
+                    <td><span class="status cancelled">Cancelado</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Ver</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row" style="margin-top: 20px;">
+          <div class="card">
+            <div class="card-header">
+              <h3>Citas Programadas para Hoy</h3>
+              <a href="#" class="view-all" onclick="showSection('appointments')">Ver todas</a>
+            </div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Cliente</th>
+                    <th>Mascota</th>
+                    <th>Servicio</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Luis Torres</td>
+                    <td>Max (Labrador)</td>
+                    <td>Vacunación</td>
+                    <td>09:30 AM</td>
+                    <td><span class="status pending">Pendiente</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Gestionar</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sofía Reyes</td>
+                    <td>Luna (Gato Persa)</td>
+                    <td>Consulta general</td>
+                    <td>10:15 AM</td>
+                    <td><span class="status completed">Completado</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Gestionar</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Diego Mendoza</td>
+                    <td>Rocky (Bulldog)</td>
+                    <td>Estética</td>
+                    <td>11:00 AM</td>
+                    <td><span class="status pending">Pendiente</span></td>
+                    <td class="actions">
+                      <button class="btn btn-primary">Gestionar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Products Section -->
+      <section id="products-section">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h2>Gestión de Productos</h2>
+            <p class="subtitle">Administra el inventario de productos de la tienda</p>
+          </div>
+          <button class="btn btn-primary" onclick="showProductForm()">
+            <i class="fas fa-plus"></i> Nuevo Producto
+          </button>
+        </div>
+        
+        <div class="card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="pro1">
+                  <td>#PRD-001</td>
+                  <td><img src="./NutreCan.jpeg" alt="Producto"></td>
+                  <td>Alimento para perros NutreCan</td>
+                  <td>Alimentos</td>
+                  <td>$45,000</td>
+                  <td>35</td>
+                  <td><span class="status completed">Activo</span></td>
+                  <td class="actions">
+                    <button class="btn btn-secondary" onclick="editProduct(1)"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-secondary delete-btn" pro-id="pro1"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr id="pro2">
+                  <td>#PRD-002</td>
+                  <td><img src="./Collar.webp" alt="Producto"></td>
+                  <td id="nompro1">Collar antipulgas</td>
+                  <td>Accesorios</td>
+                  <td>$30,000</td>
+                  <td>42</td>
+                  <td><span class="status completed">Activo</span></td>
+                  <td class="actions">
+                    <button class="btn btn-secondary" onclick="editProduct(2)"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-secondary delete-btn" pro-id="pro2"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr id="pro3">
+                  <td>#PRD-003</td>
+                  <td><img src="./Shampoo.jpg" alt="Producto"></td>
+                  <td id="nompro1">Shampoo para mascotas</td>
+                  <td>Higiene</td>
+                  <td>$18,000</td>
+                  <td>28</td>
+                  <td><span class="status completed">Activo</span></td>
+                  <td class="actions">
+                    <button class="btn btn-secondary" onclick="editProduct(3)"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-secondary delete-btn" pro-id="pro3"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr id="pro4">
+                  <td>#PRD-004</td>
+                  <td><img src="./Pelota.jpeg" alt="Producto"></td>
+                  <td id="nompro1">Pelota de juguete</td>
+                  <td>Juguetes</td>
+                  <td>$12,000</td>
+                  <td>50</td>
+                  <td><span class="status completed">Activo</span></td>
+                  <td class="actions">
+                    <button class="btn btn-secondary" onclick="editProduct(4)"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-secondary delete-btn" pro-id="pro4"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr id="pro5">
+                  <td>#PRD-005</td>
+                  <td><img src="./Arenero.jpg" alt="Producto"></td>
+                  <td id="nompro1">Arenero para gatos</td>
+                  <td>Accesorios</td>
+                  <td>$52,000</td>
+                  <td>15</td>
+                  <td><span class="status pending">Bajo stock</span></td>
+                  <td class="actions">
+                    <button class="btn btn-secondary" onclick="editProduct(5)"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-secondary delete-btn" pro-id="pro5"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Formulario de producto (oculto) -->
+        <div id="product-form" style="display: none; margin-top: 20px;">
+          <div class="card">
+            <h3 id="form-title">Agregar Nuevo Producto</h3>
+            <form id="add-product-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-name">Nombre del Producto</label>
+                  <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                  <label for="product-category">Categoría</label>
+                  <select id="product-category" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Accesorios">Accesorios</option>
+                    <option value="Juguetes">Juguetes</option>
+                    <option value="Higiene">Higiene</option>
+                    <option value="Medicamentos">Medicamentos</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-price">Precio</label>
+                  <input type="number" id="product-price" min="0" required>
+                </div>
+                <div class="form-group">
+                  <label for="product-stock">Stock</label>
+                  <input type="number" id="product-stock" min="0" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="product-description">Descripción</label>
+                <textarea id="product-description" rows="4" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="product-image">Imagen del Producto</label>
+                <input type="file" id="product-image">
+              </div>
+              
+              <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button type="button" class="btn btn-secondary" onclick="cancelProductForm()">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Producto</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Customers Section -->
+      <section id="customers-section">
+        <h2>Gestión de Clientes</h2>
+        <p class="subtitle">Administra la información de tus clientes</p>
+        
+        <div class="card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th>Teléfono</th>
+                  <th>Mascotas</th>
+                  <th>Fecha de Registro</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#USR-001</td>
+                  <td>Ana García</td>
+                  <td>ana.garcia@example.com</td>
+                  <td>315-789-4561</td>
+                  <td>2</td>
+                  <td>15/01/2025</td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#USR-002</td>
+                  <td>Carlos Pérez</td>
+                  <td>carlos.perez@example.com</td>
+                  <td>312-456-7890</td>
+                  <td>1</td>
+                  <td>20/02/2025</td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#USR-003</td>
+                  <td>María López</td>
+                  <td>maria.lopez@example.com</td>
+                  <td>318-901-2345</td>
+                  <td>3</td>
+                  <td>05/03/2025</td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#USR-004</td>
+                  <td>Pedro Ramírez</td>
+                  <td>pedro.ramirez@example.com</td>
+                  <td>310-345-6789</td>
+                  <td>2</td>
+                  <td>12/04/2025</td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#USR-005</td>
+                  <td>Sofía Reyes</td>
+                  <td>sofia.reyes@example.com</td>
+                  <td>317-890-1234</td>
+                  <td>1</td>
+                  <td>25/04/2025</td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <div class="card">
+            <div class="card-header">
+              <h3>Estadísticas de Clientes</h3>
+            </div>
+            <div style="padding: 20px;">
+              <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 200px;">
+                  <h4>Nuevos clientes (último mes)</h4>
+                  <p style="font-size: 24px; font-weight: bold; color: var(--primary);">57</p>
+                  <p style="color: green;"><i class="fas fa-arrow-up"></i> 12% vs mes anterior</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                  <h4>Clientes activos</h4>
+                  <p style="font-size: 24px; font-weight: bold; color: var(--primary);">823</p>
+                  <p style="color: green;"><i class="fas fa-arrow-up"></i> 5% vs mes anterior</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                  <h4>Valor promedio por cliente</h4>
+                  <p style="font-size: 24px; font-weight: bold; color: var(--primary);">$145,000</p>
+                  <p style="color: green;"><i class="fas fa-arrow-up"></i> 8% vs mes anterior</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Orders Section -->
+      <section id="orders-section">
+        <h2>Gestión de Pedidos</h2>
+        <p class="subtitle">Administra los pedidos de la tienda</p>
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+          <button class="btn btn-primary">Todos</button>
+          <button class="btn btn-secondary">Pendientes</button>
+          <button class="btn btn-secondary">En proceso</button>
+          <button class="btn btn-secondary">Completados</button>
+          <button class="btn btn-secondary">Cancelados</button>
+        </div>
+        
+        <div class="card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID Pedido</th>
+                  <th>Cliente</th>
+                  <th>Fecha</th>
+                  <th>Productos</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#ORD-238</td>
+                  <td>Ana García</td>
+                  <td>20/05/2025</td>
+                  <td>3 productos</td>
+                  <td>$120,000</td>
+                  <td><span class="status pending">Pendiente</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary" id="boton1">Ver detalles</button>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary">Actualizar <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-237</td>
+                  <td>Carlos Pérez</td>
+                  <td>19/05/2025</td>
+                  <td>2 productos</td>
+                  <td>$100.008</td>
+                  <td><span class="status completed">Completado</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary" id="boton2">Ver detalles</button>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary">Actualizar <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-236</td>
+                  <td>María López</td>
+                  <td>19/05/2025</td>
+                  <td>5 productos</td>
+                  <td>$217.580</td>
+                  <td><span class="status completed">Completado</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary" id="boton3">Ver detalles</button>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary">Actualizar <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-235</td>
+                  <td>Pedro Ramírez</td>
+                  <td>18/05/2025</td>
+                  <td>1 producto</td>
+                  <td>$45,030</td>
+                  <td><span class="status cancelled">Cancelado</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary" id="boton4">Ver detalles</button>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary">Actualizar <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#ORD-234</td>
+                  <td>Sofía Reyes</td>
+                  <td>18/05/2025</td>
+                  <td>4 productos</td>
+                  <td>$155.700</td>
+                  <td><span class="status pending">En proceso</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary" id="boton5">Ver detalles</button>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary">Actualizar <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Detalles del pedido (modal) -->
+        <div id="recuadro1" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+          <div style="background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3>Detalles del Pedido #ORD-238</h3>
+              <button class="btn btn-secondary" onclick="closeOrderModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+              <div style="flex: 1;">
+                <h4>Información del Cliente</h4>
+                <p><strong>Nombre:</strong> Ana García</p>
+                <p><strong>Email:</strong> ana.garcia@example.com</p>
+                <p><strong>Teléfono:</strong> 315-789-4561</p>
+              </div>
+              <div style="flex: 1;">
+                <h4>Información del Pedido</h4>
+                <p><strong>Fecha:</strong> 20/05/2025</p>
+                <p><strong>Estado:</strong> <span class="status pending">Pendiente</span></p>
+                <p><strong>Método de Pago:</strong> Tarjeta de crédito</p>
+              </div>
+            </div>
+            
+            <h4>Productos</h4>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alimento para perros NutreCan</td>
+                    <td>$45,000</td>
+                    <td>1</td>
+                    <td>$45,000</td>
+                  </tr>
+                  <tr>
+                    <td>Shampoo para mascotas</td>
+                    <td>$18,000</td>
+                    <td>2</td>
+                    <td>$36,000</td>
+                  </tr>
+                  <tr>
+                    <td>Pelota de juguete</td>
+                    <td>$12,000</td>
+                    <td>1</td>
+                    <td>$12,000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Subtotal:</strong></td>
+                    <td>$93,000</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>IVA (19%):</strong></td>
+                    <td>$17,670</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Envío:</strong></td>
+                    <td>$9,330</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><strong>$120,000</strong></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            
+            <div style="margin-top: 20px;">
+              <h4>Dirección de Envío</h4>
+              <p>Calle 45 #23-12, Apartamento 302</p>
+              <p>Barrio El Poblado</p>
+              <p>Santiago de Cali, Valle del Cauca</p>
+              <p>Colombia</p>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+              <button class="btn btn-secondary">Cancelar Pedido</button>
+              <button class="btn btn-primary">Actualizar Estado</button>
+            </div>
+          </div>
+        </div>
+        
+        <div id="recuadro2" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+          <div style="background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3>Detalles del Pedido #ORD-237</h3>
+              <button class="btn btn-secondary" onclick="closeOrderModal()"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+              <div style="flex: 1;">
+                <h4>Información del Cliente</h4>
+                <p><strong>Nombre:</strong> Carlos Perez</p>
+                <p><strong>Email:</strong> carlos.perez@example.com</p>
+                <p><strong>Teléfono:</strong> 312-456-7890	</p>
+              </div>
+              <div style="flex: 1;">
+                <h4>Información del Pedido</h4>
+                <p><strong>Fecha:</strong> 15/05/2025</p>
+                <p><strong>Estado:</strong> <span class="status completed">Completado</span></p>
+                <p><strong>Método de Pago:</strong> Efectivo</p>
+              </div>
+            </div>
+            
+            <h4>Productos</h4>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Pelota de Juguete</td>
+                    <td>$12.000</td>
+                    <td>2</td>
+                    <td>$24.000</td>
+                  </tr>
+                  <tr>
+                    <td>Arenero para Gatos</td>
+                    <td>$52.000</td>
+                    <td>1</td>
+                    <td>$52.000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Subtotal:</strong></td>
+                    <td>$76.200</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>IVA (19%):</strong></td>
+                    <td>$14.478</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Envío:</strong></td>
+                    <td>$9,330</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><strong>$100.008</strong></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            
+            <div style="margin-top: 20px;">
+              <h4>Dirección de Envío</h4>
+              <p>Carrera 46 #18-31</p>
+              <p>San Judas</p>
+              <p>Santiago de Cali, Valle del Cauca</p>
+              <p>Colombia</p>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+              <button class="btn btn-secondary">Cancelar Pedido</button>
+              <button class="btn btn-primary">Actualizar Estado</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="recuadro3" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+          <div style="background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3>Detalles del Pedido #ORD-237</h3>
+              <button class="btn btn-secondary" onclick="closeOrderModal()"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+              <div style="flex: 1;">
+                <h4>Información del Cliente</h4>
+                <p><strong>Nombre:</strong> María López</p>
+                <p><strong>Email:</strong> maria.lopez@example.com	</p>
+                <p><strong>Teléfono:</strong> 318-901-2345</p>
+              </div>
+              <div style="flex: 1;">
+                <h4>Información del Pedido</h4>
+                <p><strong>Fecha:</strong> 10/05/2025</p>
+                <p><strong>Estado:</strong> <span class="status completed">Completado</span></p>
+                <p><strong>Método de Pago:</strong> Transferencia</p>
+              </div>
+            </div>
+            
+            <h4>Productos</h4>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alimento para perros NutreCan</td>
+                    <td>$45,000</td>
+                    <td>1</td>
+                    <td>$45,000</td>
+                  </tr>
+                  <tr>
+                    <td>Shampoo para mascotas</td>
+                    <td>$18,000</td>
+                    <td>1</td>
+                    <td>$36,000</td>
+                  </tr>
+                  <tr>
+                    <td>Pelota de juguete</td>
+                    <td>$12,000</td>
+                    <td>1</td>
+                    <td>$12,000</td>
+                  </tr>
+                  <tr>
+                    <td>Collar Antipulgas</td>
+                    <td>$30.000</td>
+                    <td>1</td>
+                    <td>$30.000</td>
+                  </tr>
+                  <tr>
+                    <td>Arenero para Gatos</td>
+                    <td>$52,000</td>
+                    <td>1</td>
+                    <td>$52,000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Subtotal:</strong></td>
+                    <td>$175.000</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>IVA (19%):</strong></td>
+                    <td>$33.250</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Envío:</strong></td>
+                    <td>$9,330</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><strong>$217.580</strong></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            
+            <div style="margin-top: 20px;">
+              <h4>Dirección de Envío</h4>
+              <p>Carrera 41h #45-34</p>
+              <p>La Union</p>
+              <p>Santiago de Cali, Valle del Cauca</p>
+              <p>Colombia</p>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+              <button class="btn btn-secondary">Cancelar Pedido</button>
+              <button class="btn btn-primary">Actualizar Estado</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="recuadro4" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+          <div style="background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3>Detalles del Pedido #ORD-238</h3>
+              <button class="btn btn-secondary" onclick="closeOrderModal()"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+              <div style="flex: 1;">
+                <h4>Información del Cliente</h4>
+                <p><strong>Nombre:</strong> Pedro Ramírez</p>
+                <p><strong>Email:</strong> pedro.ramirez@example.com</p>
+                <p><strong>Teléfono:</strong> 310-345-6789</p>
+              </div>
+              <div style="flex: 1;">
+                <h4>Información del Pedido</h4>
+                <p><strong>Fecha:</strong> 05/05/2025</p>
+                <p><strong>Estado:</strong> <span class="status cancelled">Cancelado</span></p>
+                <p><strong>Método de Pago:</strong> Tarjeta de crédito</p>
+              </div>
+            </div>
+            
+            <h4>Productos</h4>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Collar Antipulgas</td>
+                    <td>$30.000</td>
+                    <td>1</td>
+                    <td>$30.000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Subtotal:</strong></td>
+                    <td>$30.000</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>IVA (19%):</strong></td>
+                    <td>$5.700</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Envío:</strong></td>
+                    <td>$9,330</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><strong>$45.030</strong></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            
+            <div style="margin-top: 20px;">
+              <h4>Dirección de Envío</h4>
+              <p>Carrera 42A Bis # 51-56</p>
+              <p>Ciudad Cordoba</p>
+              <p>Santiago de Cali, Valle del Cauca</p>
+              <p>Colombia</p>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+              <button class="btn btn-secondary">Cancelar Pedido</button>
+              <button class="btn btn-primary">Actualizar Estado</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="recuadro5" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+          <div style="background-color: white; margin: 50px auto; padding: 20px; width: 80%; max-width: 800px; border-radius: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3>Detalles del Pedido #ORD-238</h3>
+              <button class="btn btn-secondary" onclick="closeOrderModal()"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+              <div style="flex: 1;">
+                <h4>Información del Cliente</h4>
+                <p><strong>Nombre:</strong> Sofía Reyes</p>
+                <p><strong>Email:</strong> sofia.reyes@example.com</p>
+                <p><strong>Teléfono:</strong> 317-890-1234</p>
+              </div>
+              <div style="flex: 1;">
+                <h4>Información del Pedido</h4>
+                <p><strong>Fecha:</strong> 30/04/2025</p>
+                <p><strong>Estado:</strong> <span class="status pending">En proceso</span></p>
+                <p><strong>Método de Pago:</strong> Efectivo</p>
+              </div>
+            </div>
+            
+            <h4>Productos</h4>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alimento para perros NutreCan</td>
+                    <td>$45,000</td>
+                    <td>1</td>
+                    <td>$45,000</td>
+                  </tr>
+                  <tr>
+                    <td>Shampoo para mascotas</td>
+                    <td>$18,000</td>
+                    <td>2</td>
+                    <td>$36,000</td>
+                  </tr>
+                  <tr>
+                    <td>Pelota de juguete</td>
+                    <td>$12,000</td>
+                    <td>1</td>
+                    <td>$12,000</td>
+                  </tr>
+                  <tr>
+                    <td>Collar Antipulgas</td>
+                    <td>$30.000</td>
+                    <td>1</td>
+                    <td>$30.000</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Subtotal:</strong></td>
+                    <td>$123.000</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>IVA (19%):</strong></td>
+                    <td>$23.370</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Envío:</strong></td>
+                    <td>$9,330</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                    <td><strong>$155.700</strong></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            
+            <div style="margin-top: 20px;">
+              <h4>Dirección de Envío</h4>
+              <p>Calle 45 #23-12, Apartamento 304</p>
+              <p>Barrio El Poblado</p>
+              <p>Santiago de Cali, Valle del Cauca</p>
+              <p>Colombia</p>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+              <button class="btn btn-secondary">Cancelar Pedido</button>
+              <button class="btn btn-primary">Actualizar Estado</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Appointments Section -->
+      <section id="appointments-section">
+        <h2>Gestión de Citas</h2>
+        <p class="subtitle">Administra las citas veterinarias</p>
+        
+        <div style="display: flex; margin-bottom: 20px; gap: 15px;">
+          <div style="flex: 1;">
+            <div class="card">
+              <div style="padding: 15px;">
+                <h3>Calendario de Citas</h3>
+                <div id="calendar-placeholder" style="height: 300px; margin-top: 15px; display: flex; justify-content: center; align-items: center; background-color: #f5f5f5; border-radius: 5px;">
+                  <p>Aquí se mostraría un calendario interactivo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 1;">
+            <div class="card">
+              <div style="padding: 15px;">
+                <h3>Citas del día (20/05/2025)</h3>
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Hora</th>
+                        <th>Cliente</th>
+                        <th>Mascota</th>
+                        <th>Servicio</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>09:30 AM</td>
+                        <td>Luis Torres</td>
+                        <td>Max (Labrador)</td>
+                        <td>Vacunación</td>
+                        <td><span class="status pending">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>10:15 AM</td>
+                        <td>Sofía Reyes</td>
+                        <td>Luna (Gato)</td>
+                        <td>Consulta general</td>
+                        <td><span class="status completed">Atendido</span></td>
+                      </tr>
+                      <tr>
+                        <td>11:00 AM</td>
+                        <td>Diego Mendoza</td>
+                        <td>Rocky (Bulldog)</td>
+                        <td>Estética</td>
+                        <td><span class="status pending">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>14:30 PM</td>
+                        <td>María López</td>
+                        <td>Simba (Gato)</td>
+                        <td>Vacunación</td>
+                        <td><span class="status pending">Pendiente</span></td>
+                      </tr>
+                      <tr>
+                        <td>16:00 PM</td>
+                        <td>Carlos Pérez</td>
+                        <td>Toby (Schnauzer)</td>
+                        <td>Consulta general</td>
+                        <td><span class="status pending">Pendiente</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div style="padding: 15px;">
+            <h3>Próximas Citas</h3>
+            <div class="table-responsive">
+              <table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Cliente</th>
+      <th>Mascota</th>
+      <th>Servicio</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="cita1">
+      <td>21/05/2025</td>
+      <td>09:00 AM</td>
+      <td>Pedro Ramírez</td>
+      <td>Canela (Cocker)</td>
+      <td>Desparasitación</td>
+      <td><span class="status pending">Pendiente</span></td>
+      <td class="actions">
+        <button class="btn btn-primary">Ver</button>
+        <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+        <button class="btn btn-secondary delete-cita" data-id="cita1"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    <tr id="cita2">
+      <td>21/05/2025</td>
+      <td>11:30 AM</td>
+      <td>Ana García</td>
+      <td>Loki (Husky)</td>
+      <td>Consulta general</td>
+      <td><span class="status pending">Pendiente</span></td>
+      <td class="actions">
+        <button class="btn btn-primary">Ver</button>
+        <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+        <button class="btn btn-secondary delete-cita" data-id="cita2"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    <tr id="cita3">
+      <td>22/05/2025</td>
+      <td>10:00 AM</td>
+      <td>Maria López</td>
+      <td>Lucas (Beagle)</td>
+      <td>Estética</td>
+      <td><span class="status pending">Pendiente</span></td>
+      <td class="actions">
+        <button class="btn btn-primary">Ver</button>
+        <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+        <button class="btn btn-secondary delete-cita" data-id="cita3"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    <tr id="cita4">
+      <td>22/05/2025</td>
+      <td>15:45 PM</td>
+      <td>Carlos Pérez</td>
+      <td>Mia (Gato)</td>
+      <td>Vacunación</td>
+      <td><span class="status pending">Pendiente</span></td>
+      <td class="actions">
+        <button class="btn btn-primary">Ver</button>
+        <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+        <button class="btn btn-secondary delete-cita" data-id="cita4"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+            </div>
+            
+            <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+              <button class="btn btn-primary" onclick="showCitasForm()">
+                <i class="fas fa-plus"></i> Agendar Nueva Cita
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="product-form" style="display: none; margin-top: 20px;">
+          <div class="card">
+            <h3 id="form-title">Agregar Nueva Cita</h3>
+            <form id="add-product-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-name">Nombre del Producto</label>
+                  <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                  <label for="product-category">Categoría</label>
+                  <select id="product-category" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Accesorios">Accesorios</option>
+                    <option value="Juguetes">Juguetes</option>
+                    <option value="Higiene">Higiene</option>
+                    <option value="Medicamentos">Medicamentos</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-price">Precio</label>
+                  <input type="number" id="product-price" min="0" required>
+                </div>
+                <div class="form-group">
+                  <label for="product-stock">Stock</label>
+                  <input type="number" id="product-stock" min="0" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="product-description">Descripción</label>
+                <textarea id="product-description" rows="4" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="product-image">Imagen del Producto</label>
+                <input type="file" id="product-image">
+              </div>
+              
+              <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button type="button" class="btn btn-secondary" onclick="cancelCitasForm()">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar Producto</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+      <!-- PQRS Section -->
+      <section id="pqrs-section">
+        <h2>Gestión de PQRS</h2>
+        <p class="subtitle">Peticiones, Quejas, Reclamos y Sugerencias</p>
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+          <button class="btn btn-primary">Todos</button>
+          <button class="btn btn-secondary">Peticiones</button>
+          <button class="btn btn-secondary">Quejas</button>
+          <button class="btn btn-secondary">Reclamos</button>
+          <button class="btn btn-secondary">Sugerencias</button>
+        </div>
+        
+        <div class="card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tipo</th>
+                  <th>Cliente</th>
+                  <th>Asunto</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#PQRS-089</td>
+                  <td>Reclamo</td>
+                  <td>Ana García</td>
+                  <td>Producto defectuoso</td>
+                  <td>19/05/2025</td>
+                  <td><span class="status pending">Pendiente</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary">Responder</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#PQRS-088</td>
+                  <td>Petición</td>
+                  <td>Carlos Pérez</td>
+                  <td>Solicitud de información</td>
+                  <td>18/05/2025</td>
+                  <td><span class="status completed">Resuelto</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary">Responder</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#PQRS-087</td>
+                  <td>Queja</td>
+                  <td>María López</td>
+                  <td>Demora en entrega</td>
+                  <td>17/05/2025</td>
+                  <td><span class="status pending">En trámite</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary">Responder</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#PQRS-086</td>
+                  <td>Sugerencia</td>
+                  <td>Pedro Ramírez</td>
+                  <td>Mejora en página web</td>
+                  <td>16/05/2025</td>
+                  <td><span class="status pending">En trámite</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary">Responder</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>#PQRS-085</td>
+                  <td>Reclamo</td>
+                  <td>Sofía Reyes</td>
+                  <td>Producto equivocado</td>
+                  <td>15/05/2025</td>
+                  <td><span class="status completed">Resuelto</span></td>
+                  <td class="actions">
+                    <button class="btn btn-primary">Ver</button>
+                    <button class="btn btn-secondary">Responder</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Estadísticas de PQRS -->
+        <div style="margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;" class="card">
+            <div style="padding: 15px;">
+              <h3>Estadísticas por Tipo</h3>
+              <div id="pqrs-chart-placeholder" style="height: 200px; margin-top: 15px; display: flex; justify-content: center; align-items: center; background-color: #f5f5f5; border-radius: 5px;">
+                <p>Aquí se mostraría un gráfico de tipos de PQRS</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 1; min-width: 300px;" class="card">
+            <div style="padding: 15px;">
+              <h3>Tiempo de Respuesta</h3>
+              <div id="response-time-chart-placeholder" style="height: 200px; margin-top: 15px; display: flex; justify-content: center; align-items: center; background-color: #f5f5f5; border-radius: 5px;">
+                <p>Aquí se mostraría un gráfico de tiempos de respuesta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Reports Section -->
+      <section id="reports-section">
+        <h2>Reportes y Estadísticas</h2>
+        <p class="subtitle">Analiza el rendimiento de tu negocio</p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
+          <div style="flex: 1; min-width: 250px;" class="card">
+            <div style="padding: 15px;">
+              <h3>Ventas Mensuales</h3>
+              <div id="sales-chart-placeholder" style="height: 250px; margin-top: 15px; display: flex; justify-content: center; align-items: center; background-color: #f5f5f5; border-radius: 5px;">
+                <p>Aquí se mostraría un gráfico de ventas mensuales</p>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 1; min-width: 250px;" class="card">
+            <div style="padding: 15px;">
+              <h3>Productos Más Vendidos</h3>
+              <div id="top-products-chart-placeholder" style="height: 250px; margin-top: 15px; display: flex; justify-content: center; align-items: center; background-color: #f5f5f5; border-radius: 5px;">
+                <p>Aquí se mostraría un gráfico de productos top</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div style="padding: 15px;">
+            <h3>Reporte de Ventas</h3>
+            <div style="display: flex; gap: 15px; margin: 15px 0;">
+              <div class="form-group" style="flex: 1;">
+                <label>Fecha Inicio</label>
+                <input type="date" value="2025-04-01">
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label>Fecha Fin</label>
+                <input type="date" value="2025-05-20">
+              </div>
+              <div style="display: flex; align-items: flex-end;">
+                <button class="btn btn-primary">Generar Reporte</button>
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Categoría</th>
+                    <th>Ventas Totales</th>
+                    <th>% del Total</th>
+                    <th>Crecimiento vs Período Anterior</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alimentos</td>
+                    <td>$8,245,000</td>
+                    <td>42%</td>
+                    <td style="color: green;"><i class="fas fa-arrow-up"></i> 6%</td>
+                </tr>
+                </tr>
+                  <tr>
+                    <td>Accesorios</td>
+                    <td>$4,120,000</td>
+                    <td>21%</td>
+                    <td style="color: green;"><i class="fas fa-arrow-up"></i> 5%</td>
+                  </tr>
+                  <tr>
+                    <td>Juguetes</td>
+                    <td>$2,670,000</td>
+                    <td>14%</td>
+                    <td style="color: green;"><i class="fas fa-arrow-up"></i> 12%</td>
+                  </tr>
+                  <tr>
+                    <td>Higiene</td>
+                    <td>$2,350,000</td>
+                    <td>12%</td>
+                    <td style="color: red;"><i class="fas fa-arrow-down"></i> 3%</td>
+                  </tr>
+                  <tr>
+                    <td>Medicamentos</td>
+                    <td>$2,150,000</td>
+                    <td>11%</td>
+                    <td style="color: green;"><i class="fas fa-arrow-up"></i> 2%</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>$19,535,000</strong></td>
+                    <td>100%</td>
+                    <td style="color: green;"><i class="fas fa-arrow-up"></i> 8%</td>
+                  </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <div class="card">
+          <div style="padding: 15px;">
+            <h3>Reportes Disponibles</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+              <div class="card" style="cursor: pointer;">
+                <div style="padding: 15px; display: flex; align-items: center;">
+                  <i class="fas fa-file-export" style="font-size: 24px; margin-right: 15px; color: var(--primary);"></i>
+                  <div>
+                    <h4>Reporte de Ventas</h4>
+                    <p style="font-size: 14px; color: #888;">Exportar en Excel o PDF</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="cursor: pointer;">
+                <div style="padding: 15px; display: flex; align-items: center;">
+                  <i class="fas fa-chart-line" style="font-size: 24px; margin-right: 15px; color: var(--primary);"></i>
+                  <div>
+                    <h4>Análisis de Inventario</h4>
+                    <p style="font-size: 14px; color: #888;">Exportar en Excel o PDF</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="cursor: pointer;">
+                <div style="padding: 15px; display: flex; align-items: center;">
+                  <i class="fas fa-users" style="font-size: 24px; margin-right: 15px; color: var(--primary);"></i>
+                  <div>
+                    <h4>Reporte de Clientes</h4>
+                    <p style="font-size: 14px; color: #888;">Exportar en Excel o PDF</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="cursor: pointer;">
+                <div style="padding: 15px; display: flex; align-items: center;">
+                  <i class="fas fa-calendar-check" style="font-size: 24px; margin-right: 15px; color: var(--primary);"></i>
+                  <div>
+                    <h4>Reporte de Citas</h4>
+                    <p style="font-size: 14px; color: #888;">Exportar en Excel o PDF</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+      
+      <!-- Settings Section -->
+      <section id="settings-section">
+        <h2>Configuración</h2>
+        <p class="subtitle">Administra la configuración del sistema</p>
+        
+        <div class="card" style="margin-bottom: 20px;">
+          <div style="padding: 15px;">
+            <h3>Configuración General</h3>
+            <form id="general-settings-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Nombre de la Tienda</label>
+                  <input type="text" value="Patas y Bigotes">
+                </div>
+                <div class="form-group">
+                  <label>Correo Electrónico de Contacto</label>
+                  <input type="email" value="contacto@patasybigotes.com">
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Teléfono</label>
+                  <input type="tel" value="+57 300 123 4567">
+                </div>
+                <div class="form-group">
+                  <label>Horario de Atención</label>
+                  <input type="text" value="Lunes a Viernes: 8:00 AM - 6:00 PM, Sábados: 9:00 AM - 2:00 PM">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label>Dirección</label>
+                <input type="text" value="Calle 15 #25-43, Santiago de Cali, Valle del Cauca">
+              </div>
+              
+              <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div class="card" style="margin-bottom: 20px;">
+          <div style="padding: 15px;">
+            <h3>Métodos de Pago</h3>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Método de Pago</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tarjeta de Crédito/Débito</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td>
+                      <div class="form-check" style="display: flex; align-items: center;">
+                        <input type="checkbox" checked style="margin-right: 5px;">
+                        <label>Habilitado</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>PSE (Pago en línea)</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td>
+                      <div class="form-check" style="display: flex; align-items: center;">
+                        <input type="checkbox" checked style="margin-right: 5px;">
+                        <label>Habilitado</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Efectivo (Contra entrega)</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td>
+                      <div class="form-check" style="display: flex; align-items: center;">
+                        <input type="checkbox" checked style="margin-right: 5px;">
+                        <label>Habilitado</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Transferencia Bancaria</td>
+                    <td><span class="status pending">Inactivo</span></td>
+                    <td>
+                      <div class="form-check" style="display: flex; align-items: center;">
+                        <input type="checkbox" style="margin-right: 5px;">
+                        <label>Habilitado</label>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+              <button class="btn btn-primary">Guardar Cambios</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card" style="margin-bottom: 20px;">
+          <div style="padding: 15px;">
+            <h3>Usuarios del Sistema</h3>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="admin1">
+                    <td>Administrador</td>
+                    <td>admin@patasybigotes.com</td>
+                    <td>Administrador</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td class="actions">
+                      <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                    </td>
+                  </tr>
+                  <tr id="admin2">
+                    <td>Juan Martínez</td>
+                    <td>juan@patasybigotes.com</td>
+                    <td>Vendedor</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td class="actions">
+                      <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-secondary delete-admin" admin-id="admin2"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr id="admin3">
+                    <td>Laura Gómez</td>
+                    <td>laura@patasybigotes.com</td>
+                    <td>Asistente</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td class="actions">
+                      <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-secondary delete-admin" admin-id="admin3"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr id="admin4">
+                    <td>Carlos Ramírez</td>
+                    <td>carlos@patasybigotes.com</td>
+                    <td>Veterinario</td>
+                    <td><span class="status completed">Activo</span></td>
+                    <td class="actions">
+                      <button class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-secondary delete-admin" admin-id="admin4"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+              <button class="btn btn-primary">
+                <i class="fas fa-plus"></i> Añadir Usuario
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+  <script src="Script.js"></script>
+</body>
+</html>
+                  
